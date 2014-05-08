@@ -22,6 +22,17 @@ int main(int argc, const char * argv[])
             [items addObject:item];
         }
         
+        //For container
+        //BNRItem *backpack = [[BNRItem alloc] init];
+        //[items addObject:backpack];
+        
+        //BNRItem *calculator = [[BNRItem alloc] initWithItemName:@"Calculator"];
+        
+        //backpack.containedItem = calculator;
+        
+        //backpack = nil;
+        //calculator = nil;
+        
         for (id item in items) {
             NSLog(@"%@", item);
         }
