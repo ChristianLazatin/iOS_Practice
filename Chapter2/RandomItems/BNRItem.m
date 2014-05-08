@@ -20,14 +20,17 @@
 {
     // Create an array of three adjectives
     NSArray *randomAdjectiveList = @[@"Fluffy", @"Rusty", @"Shiny"];
+    
     // Create an array of three nouns
     NSArray *randomNounList = @[@"Bear", @"Spork", @"Mac"];
-    // Get the index of a random adjective/noun from the lists
-    // Note: The % operator, called the modulo operator, gives
-    // you the remainder. So adjectiveIndex is a random number
-    // from 0 to 2 inclusive.
+    
+    /* Get the index of a random adjective/noun from the lists
+       Note: The % operator, called the modulo operator, gives
+       you the remainder. So adjectiveIndex is a random number
+       from 0 to 2 inclusive.*/
     NSInteger adjectiveIndex = rand() % [randomAdjectiveList count];
     NSInteger nounIndex = rand() % [randomNounList count];
+    
     // Note that NSInteger is not an object, but a type definition
     // for "unsigned long"
     NSString *randomName = [NSString stringWithFormat:@"%@ %@",
@@ -47,7 +50,7 @@
     return newItem;
 }
 
-- (id)initWithItemName:(NSString *)name
+- (instancetype)initWithItemName:(NSString *)name
         valueInDollars:(int)value
           serialNumber:(NSString *)sNumber
 {
@@ -66,10 +69,16 @@
     return self;
 }
 
-- (id)init {
+- (instancetype)initWithItemName:(NSString *)name
+{
     return [self initWithItemName:@"Item"
-                   valueInDollars:0
-                     serialNumber:@""];
+                  valueInDollars:0
+                    serialNumber:@""];
+}
+
+
+- (instancetype)init {
+    return [self initWithItemName:@"Item"];
 }
 
 - (NSString *)description

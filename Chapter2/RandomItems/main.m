@@ -17,21 +17,10 @@ int main(int argc, const char * argv[])
        //Create a mutable array object, store its address in items variable
         NSMutableArray *items = [[NSMutableArray alloc] init];
         
-        /*for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++) {
             BNRItem *item = [BNRItem randomItem];
             [items addObject:item];
-        }*/
-        
-        //For container
-        BNRItem *backpack = [[BNRItem alloc] init];
-        [items addObject:backpack];
-        
-        BNRItem *calculator = [[BNRItem alloc] initWithItemName:@"Calculator"];
-        
-        backpack.containedItem = calculator;
-        
-        backpack = nil;
-        calculator = nil;
+        }
         
         for (id item in items) {
             NSLog(@"%@", item);
