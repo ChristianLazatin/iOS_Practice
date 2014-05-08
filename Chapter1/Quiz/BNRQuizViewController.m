@@ -57,7 +57,7 @@
     self.answerLabel.text = @"???";
 }
 
-- (IBAction)showAnswer:(id)sender:(id)sender
+- (IBAction)showAnswer:(id)sender
 {
     //What is the answer to the current question?
     NSString *answer = self.answers[self.currentQuestionIndex];
