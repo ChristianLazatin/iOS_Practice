@@ -13,6 +13,6 @@
 @property (strong, nonatomic) UIColor *circleColor;
 
 - (UIColor*)randomizeColor:(int)i;
-- (void)setCircleColor:(UIColor *)circleColor;
+//- (void)setCircleColor:(UIColor *)circleColor;
 
 @end

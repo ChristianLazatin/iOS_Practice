@@ -98,6 +98,8 @@
     /*UIImage *logoImage = [UIImage imageNamed:@"logo.png"];
     CGRect imageFrame = self.window.bounds;
     [logoImage drawInRect:imageFrame];*/
+    
+    NSLog(@"Hypnosis View is Updated");
 }
 
 // When a finger touches the screen
@@ -144,13 +146,13 @@
     return randomColor;
 }
 
-- (void)setCircleColor:(UIColor *)circleColor
+/*- (void)setCircleColor:(UIColor *)circleColor
 {
     _circleColor = circleColor;
     
     //_circleColor = [self randomizeColor];
     
     [self setNeedsDisplay];
-}
+}*/
 
 @end

@@ -63,7 +63,7 @@
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
     segmentedControl.frame = CGRectMake(35, 200, 250, 50);
     //segmentedControl.segmentedControlStyle = UISegmentedControlStylePlain;
-    segmentedControl.selectedSegmentIndex = 1;
+    //segmentedControl.selectedSegmentIndex = 1;
     
     [segmentedControl addTarget:self
                          action:@selector(pick: )
@@ -78,15 +78,15 @@
     NSLog(@"segmentedControl: %@", segmentedControl);
     
     if (segmentedControl.selectedSegmentIndex == 0){
-        [sender randomizeColor:0];
-        //self.view.backgroundColor = [UIColor greenColor];
+        self.view.backgroundColor = [(BNRHypnonsisView *)self.view randomizeColor:0];
     }
     else if(segmentedControl.selectedSegmentIndex == 1 )
     {
-        self.view.backgroundColor = [UIColor redColor];
+        self.view.backgroundColor = [(BNRHypnonsisView *)self.view randomizeColor:1];
     }
-    else
-        self.view.backgroundColor = [UIColor blueColor];
+    else {
+        self.view.backgroundColor = [(BNRHypnonsisView *)self.view randomizeColor:2];
+    }
 }
 
 @end
