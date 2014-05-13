@@ -67,7 +67,6 @@
 - (void)moveItemAtIndex:(NSUInteger)fromIndex
                 toIndex:(NSUInteger)toIndex
 {
-    //Edited
     if (fromIndex == toIndex || toIndex) {
         return; }
     // Get pointer to object being moved so you can re-insert it

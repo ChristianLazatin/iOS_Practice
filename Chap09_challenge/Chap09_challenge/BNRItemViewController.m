@@ -52,6 +52,7 @@
     // that is at the nth index of items, where n = row this cell
     // will appear in on the tableview
     
+    //Silver Challenge: add a no more items row
     if (indexPath.row == [[[BNRItemStore sharedStore] allItems] count]) {
         cell.textLabel.text = @"No more items";
         return cell;
@@ -73,6 +74,7 @@
 
 - (BOOL)tableView:(UITableView *)tableView
 canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    //Silver Challenge: Last row cannot be moved
     if (indexPath.row == [[[BNRItemStore sharedStore] allItems] count]) // Don't move the last row
         return NO;
     return YES;
@@ -160,6 +162,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
                      toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
+    //Gold Challenge: restrict the last row from being moved
     if (proposedDestinationIndexPath.row == [[[BNRItemStore sharedStore] allItems] count]) {
         return sourceIndexPath;
     }
