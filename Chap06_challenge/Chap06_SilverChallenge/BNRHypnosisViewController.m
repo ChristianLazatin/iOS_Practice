@@ -78,14 +78,15 @@
     NSLog(@"segmentedControl: %@", segmentedControl);
     
     if (segmentedControl.selectedSegmentIndex == 0){
-        self.view.backgroundColor = [(BNRHypnonsisView *)self.view randomizeColor:0];
+        //self.view.backgroundColor =
+        [(BNRHypnonsisView *)self.view randomizeColor:0];
     }
     else if(segmentedControl.selectedSegmentIndex == 1 )
     {
-        self.view.backgroundColor = [(BNRHypnonsisView *)self.view randomizeColor:1];
+        [(BNRHypnonsisView *)self.view randomizeColor:1];
     }
     else {
-        self.view.backgroundColor = [(BNRHypnonsisView *)self.view randomizeColor:2];
+        [(BNRHypnonsisView *)self.view randomizeColor:2];
     }
 }
 
