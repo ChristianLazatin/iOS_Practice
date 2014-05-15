@@ -48,17 +48,26 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    // Draw finished lines in black
-    [[UIColor blackColor] set];
-    
     for (BNRLine *line in self.finishedLines) {
-        [self strokeLine:line];
-        
-        //Saving data
-        NSData *data = [[NSData alloc] init];
-        data = [NSKeyedArchiver archivedDataWithRootObject:self.finishedLines];
+        /*Saving data
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:line];
         NSMutableData *saveData = [data mutableCopy];
-        [saveData writeToFile:@"/tmp/line" atomically:YES];
+        [data writeToFile:@"/tmp/line" atomically:YES];*/
+        
+        //Silver Challenge: change the line color depending on its angle
+        float angle = [self lineAtPoint:line];
+        
+        //use the 4 quadrant as a basis
+        if (angle > 0 && angle <= 90)
+            [[UIColor blueColor] setStroke];
+        else if (angle > 90 && angle <= 180)
+            [[UIColor yellowColor] setStroke];
+        else if(angle <= -90 && angle > 0)
+            [[UIColor brownColor] setStroke];
+        else
+            [[UIColor greenColor] setStroke];
+        
+        [self strokeLine:line];
     }
     
     [[UIColor redColor] set];
@@ -97,8 +106,20 @@
     [self setNeedsDisplay];
 }
 
+- (void)touchesCancelled:(NSSet *)touches
+               withEvent:(UIEvent *)event
+{
+    // Let's put in a log statement to see the order of events
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    for (UITouch *t in touches) {
+        NSValue *key = [NSValue valueWithNonretainedObject:t];
+        [self.linesInProgress removeObjectForKey:key];
+    }
+    [self setNeedsDisplay];
+}
+
 - (void)touchesEnded:(NSSet *)touches
-           withEvent:(UIEvent *)event
+withEvent:(UIEvent *)event
 {
     // Let's put in a log statement to see the order of events
     NSLog(@"%@", NSStringFromSelector(_cmd));
@@ -112,16 +133,18 @@
     [self setNeedsDisplay];
 }
 
-- (void)touchesCancelled:(NSSet *)touches
-               withEvent:(UIEvent *)event
+- (float)lineAtPoint:(BNRLine *)p
 {
-    // Let's put in a log statement to see the order of events
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-    for (UITouch *t in touches) {
-        NSValue *key = [NSValue valueWithNonretainedObject:t];
-        [self.linesInProgress removeObjectForKey:key];
-    }
-    [self setNeedsDisplay];
+    CGPoint start = p.begin;
+    CGPoint end = p.end;
+    //distance between the two points
+    int X = start.x - end.x;
+    int Y = start.y - end.y;
+    
+    //angle in radian
+    float angleInRadian = atan2((double)Y,(double)X);
+    float angleInDegree = angleInRadian * 180 / M_PI;
+    return angleInDegree;
 }
 
 @end
