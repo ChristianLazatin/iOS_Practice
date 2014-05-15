@@ -8,9 +8,10 @@
 
 #import "BNRDetailViewController.h"
 #import "BNRItem.h"
+#import "BNRDateViewController.h"
+#import "BNRItemStore.h"
 
 @interface BNRDetailViewController ()
-
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialNumberField;
@@ -27,6 +28,8 @@
     [super viewWillAppear:animated];
     
     BNRItem *item = self.item;
+    NSLog(@"%@", self.item);
+    
     self.nameField.text = item.itemName;
     self.serialNumberField.text = item.serialNumber;
     self.valueField.text = [NSString stringWithFormat:@"%d", item.valueInDollars];
@@ -67,6 +70,22 @@
 {
     [self.view endEditing:YES];
     [self.view resignFirstResponder];
+}
+
+//Change date button
+- (IBAction)switchToDateViewController:(id)sender
+{
+     BNRDateViewController *dateViewController =[[BNRDateViewController alloc] init];
+    
+    //NSArray *items = [[BNRItemStore sharedStore] allItems];
+    //BNRItem *selectedItem = items[indexPath.row];
+    
+    // Give detail view controller a pointer to the item object in row
+    dateViewController.item = self.item;
+    
+    // Push it onto the top of the navigation controller's stack
+    [self.navigationController pushViewController:dateViewController
+                                         animated:YES];
 }
 
 @end
