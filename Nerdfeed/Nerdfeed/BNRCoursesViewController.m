@@ -36,7 +36,6 @@
 
 - (void)fetchFeed
 {
-    //NSString *requestString = @"http://bookapi.bignerdranch.com/courses.json";
     NSString *requestString = @"https://bookapi.bignerdranch.com/private/courses.json";
     NSURL *url = [NSURL URLWithString:requestString];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
