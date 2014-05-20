@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>letter</key>
+	<dict>
+		<key>A</key>
+		<dict>
+			<key>title</key>
+			<string>A</string>
+			<key>description</key>
+			<string>First letter in the alphabet</string>
+			<key>category</key>
+			<string>Letter</string>
+		</dict>
+		<key>B</key>
+		<array>
+			<string>B</string>
+			<string>Second letter in the alphabet</string>
+			<string>Letter</string>
+		</array>
+		<key>C</key>
+		<array>
+			<string>C</string>
+			<string>Third letter in the alphabet</string>
+			<string>Letter</string>
+		</array>
+	</dict>
+	<key>color</key>
+	<dict>
+		<key>Red</key>
+		<array>
+			<string>Red</string>
+			<string>This is color red</string>
+			<string>color</string>
+		</array>
+		<key>Blue</key>
+		<array>
+			<string>Blue</string>
+			<string>This is color blue</string>
+			<string>color</string>
+		</array>
+		<key>Green</key>
+		<array>
+			<string>Green</string>
+			<string>This is color green</string>
+			<string>color</string>
+		</array>
+	</dict>
+	<key>food</key>
+	<dict>
+		<key>Egg Benedict</key>
+		<array>
+			<string>Egg Benedict</string>
+			<string>This is egg benedict</string>
+			<string>food</string>
+		</array>
+		<key>Mushroom Risotto</key>
+		<array>
+			<string>Mushroom Risotto</string>
+			<string>This is mushroom risotto</string>
+			<string>food</string>
+		</array>
+		<key>Hamburger</key>
+		<array>
+			<string>Hamburger</string>
+			<string>This is hamburger</string>
+			<string>food</string>
+		</array>
+	</dict>
+</dict>
+</plist>
