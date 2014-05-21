@@ -13,4 +13,8 @@ build/*
 xcuserdata
 profile
 *.moved-aside
-
+*xcworkspacedata*
+*xcuserstate*
+*xcuserdata*
+*xcscheme*
+*DS_Store*
